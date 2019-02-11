@@ -1,0 +1,25 @@
+Package: slab
+Type: Package
+Title: Assemble various geophysical data relevant to USGS slabs1.0 model
+Version: 0.1.0
+Author: Mike sandiford
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: Assemble various geophysical data relevant to USGS slabs1.0 model
+    slab1.0 usgs
+    cmt
+    ehb
+    wsm
+    hf
+    plates
+    rvers
+    coasts.
+License: Commons
+Encoding: UTF-8
+LazyData: true
+Depends:
+   tidyverse,
+   raster,
+   spatstat,
+   sf,
+   magrittr   
+RoxygenNote: 6.1.0
