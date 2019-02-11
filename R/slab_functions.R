@@ -233,7 +233,7 @@ if (case==1)  {coastlines<-   rnaturalearthhires::coastline10 %>%
  coasts <- rgdal::readOGR(get_gshhg_file()) %>%
    fortify() %>%subset(long >= limsx[1] & long <= limsx[2] & lat >= limsy[1] & lat<= limsy[2]) %>% #crop(borders,full.extent)
    df2spline()
-} else {coasts=NA; coastlines=NA)
+} else {coasts=NA; coastlines=NA}
   message("loading rivers")
   #rivers <- get_rivers( full.extent, sp=T, detail="h")
  if(rivers) {

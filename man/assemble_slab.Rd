@@ -7,7 +7,8 @@
 assemble_slab(slab = NA, slab.name = "izu", extend.lims = c(-1, 1,
   -1, 1), slab.dir = "/Volumes/data/data/global/slabs/slab1/allslabs/",
   etopo = "~/Dropbox/data/global/topography/etopo/ETOPO1_Bed_g_geotiff.tif",
-  slab2 = F, fact = 1, detail = "h", ppp = T, simplify = F, ...)
+  slab2 = F, fact = 1, detail = "h", borders = T, plates = T,
+  rivers = T, coasts = T, ppp = T, simplify = F, ...)
 }
 \arguments{
 \item{...}{}

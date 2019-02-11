@@ -11,7 +11,7 @@ plot_slab(slab, slab.col = stretch_brewer(pal = "Spectral", stretch =
   alpha = 0.75, contours = c(-10, -30, -70, -(seq(100, 600, 100))),
   ax.ext = c(0.015, 0.015), hf = FALSE, ehb = TRUE, wsm = TRUE,
   cmt = TRUE, wscale = 0.5, wlwd = 2, Pax = T, Tax = F,
-  depth = NA, ends = T, shade = T, plancurv = NA, trad = T,
+  depth = NA, ends = T, shade = T, plancurv = F, trad = T,
   shallow = F, dip = T, ...)
 }
 \arguments{
