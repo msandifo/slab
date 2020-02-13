@@ -9,6 +9,9 @@ graticule_longs(vec, inc = 0.1, proj4string = CRS("+init=epsg:4326"))
 \arguments{
 \item{proj4string}{}
 }
+\value{
+
+}
 \description{
 Title
 }

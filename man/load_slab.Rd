@@ -4,11 +4,16 @@
 \alias{load_slab}
 \title{Title}
 \usage{
-load_slab(slab.name = "izu",
-  slab.dir = "/Users/msandifo/Dropbox/msandifo/documents/programming/r/2017/ecuador/data/slab1/allslabs/")
+load_slab(
+  slab.name = "izu",
+  slab.dir = "/Volumes/data/data/global/slabs/slab1/slabs"
+)
 }
 \arguments{
 \item{slab.dir}{}
+}
+\value{
+
 }
 \description{
 Title

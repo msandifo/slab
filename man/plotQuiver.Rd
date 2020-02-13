@@ -4,11 +4,21 @@
 \alias{plotQuiver}
 \title{Title}
 \usage{
-plotQuiver(flows, add = T, length = 0.1, scale = 0.45, lwd = 3,
-  code = 2, col = "black")
+plotQuiver(
+  flows,
+  add = T,
+  length = 0.1,
+  scale = 0.45,
+  lwd = 3,
+  code = 2,
+  col = "black"
+)
 }
 \arguments{
 \item{col}{}
+}
+\value{
+
 }
 \description{
 Title

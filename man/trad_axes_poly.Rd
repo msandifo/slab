@@ -4,12 +4,20 @@
 \alias{trad_axes_poly}
 \title{Title}
 \usage{
-trad_axes_poly(e.ras, tick.int = c(5, 5), axis.width = 0.007,
-  nseq = 6, test = TRUE,
-  crs = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"))
+trad_axes_poly(
+  e.ras,
+  tick.int = c(5, 5),
+  axis.width = 0.007,
+  nseq = 6,
+  test = TRUE,
+  crs = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
+)
 }
 \arguments{
 \item{crs}{}
+}
+\value{
+
 }
 \description{
 Title

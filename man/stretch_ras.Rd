@@ -9,6 +9,9 @@ stretch_ras(ras, lims = c(0.05, 0.95))
 \arguments{
 \item{lims}{}
 }
+\value{
+
+}
 \description{
 Title
 }

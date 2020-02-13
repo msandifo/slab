@@ -4,11 +4,20 @@
 \alias{get_wdbii_file}
 \title{Title}
 \usage{
-get_wdbii_file(dir = "~/data/global/coastlines/gshhg-shp-2/",
-  type = "WDBII", resolution = "i", level = 1, river = F, ...)
+get_wdbii_file(
+  dir = "~/data/global/coastlines/gshhg-shp-2/",
+  type = "WDBII",
+  resolution = "i",
+  level = 1,
+  river = F,
+  ...
+)
 }
 \arguments{
 \item{...}{}
+}
+\value{
+
 }
 \description{
 Title

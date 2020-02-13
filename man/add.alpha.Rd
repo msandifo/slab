@@ -9,6 +9,9 @@ add.alpha(col, alpha = 1)
 \arguments{
 \item{alpha}{}
 }
+\value{
+
+}
 \description{
 Title
 }

@@ -4,11 +4,13 @@
 \alias{stretch_pal}
 \title{Title}
 \usage{
-stretch_pal(pal = "terrain.colors", stretch = 0.5, n = 255,
-  alpha = 1)
+stretch_pal(pal = "terrain.colors", stretch = 0.5, n = 255, alpha = 1)
 }
 \arguments{
 \item{alpha}{}
+}
+\value{
+
 }
 \description{
 Title

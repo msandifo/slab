@@ -4,11 +4,18 @@
 \alias{read_hf}
 \title{Title}
 \usage{
-read_hf(ghf.file = "~/Dropbox/data/global/heatflow/Global2010.csv",
-  limsx = c(-360, 360), limsy = c(-90, 90), ppp = TRUE)
+read_hf(
+  ghf.file = "~/Dropbox/data/global/heatflow/Global2010.csv",
+  limsx = c(-360, 360),
+  limsy = c(-90, 90),
+  ppp = TRUE
+)
 }
 \arguments{
 \item{ppp}{}
+}
+\value{
+
 }
 \description{
 Title

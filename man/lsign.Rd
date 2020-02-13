@@ -9,6 +9,9 @@ lsign(label, labs = c("°W", "  ", "°E"))
 \arguments{
 \item{labs}{}
 }
+\value{
+
+}
 \description{
 Title
 }

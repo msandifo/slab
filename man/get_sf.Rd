@@ -9,6 +9,9 @@ get_sf(fn, slab, sp = T, multi = T, factors = F)
 \arguments{
 \item{factors}{}
 }
+\value{
+
+}
 \description{
 Title
 }

@@ -9,6 +9,9 @@ string.c(my.labs)
 \arguments{
 \item{my.labs}{}
 }
+\value{
+
+}
 \description{
 Title
 }

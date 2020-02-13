@@ -9,6 +9,9 @@ get_pline(p, segment = 4, n = 1, psp = T, win = NA)
 \arguments{
 \item{win}{}
 }
+\value{
+
+}
 \description{
 Title
 }

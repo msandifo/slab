@@ -4,8 +4,13 @@
 \alias{build_raster_stack}
 \title{Title}
 \usage{
-build_raster_stack(ras, shade = c(300, 10, 320), shade.marine = c(10,
-  20, 320), thresh = 0, topo = FALSE)
+build_raster_stack(
+  ras,
+  shade = c(300, 10, 320),
+  shade.marine = c(10, 20, 320),
+  thresh = 0,
+  topo = FALSE
+)
 }
 \arguments{
 \item{ras}{raw raster.}
@@ -14,13 +19,13 @@ build_raster_stack(ras, shade = c(300, 10, 320), shade.marine = c(10,
 
 \item{thresh}{length 1 c(lower) or two c(lower, upper) vector for threshold settings.}
 
-\item{topo}{}
+\item{topo}{only clauclates toposhade}
 
 \item{.marine}{shade length 3 vector, vertical.exag, sun.elevation, sun.azimuth.}
-
-\item{topo}{only clauclates toposhade}
 }
 \value{
+
+
 raster stack of 4 layers.
 }
 \description{

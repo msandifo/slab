@@ -4,12 +4,20 @@
 \alias{trad_axes_poly_back}
 \title{Title}
 \usage{
-trad_axes_poly_back(e.ras, axis.width = 0.007, width = 2,
+trad_axes_poly_back(
+  e.ras,
+  axis.width = 0.007,
+  width = 2,
   crs = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"),
-  nseq = 51, extend = 0.002)
+  nseq = 51,
+  extend = 0.002
+)
 }
 \arguments{
 \item{extend}{}
+}
+\value{
+
 }
 \description{
 Title

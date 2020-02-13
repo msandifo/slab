@@ -4,12 +4,20 @@
 \alias{convertPts}
 \title{Title}
 \usage{
-convertPts(x, y = y, from = CRS("+init=epsg:4326"),
+convertPts(
+  x,
+  y = y,
+  from = CRS("+init=epsg:4326"),
   to = CRS("+proj=laea +lat_0=-45.7 +lon_0=132.9 +ellps=WGS84"),
-  xy = T, single = F)
+  xy = T,
+  single = F
+)
 }
 \arguments{
 \item{single}{}
+}
+\value{
+
 }
 \description{
 Title

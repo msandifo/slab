@@ -4,11 +4,20 @@
 \alias{wsm_ppp}
 \title{Title}
 \usage{
-wsm_ppp(wsm = NA, fname = "~/Dropbox/data/global/wsm/wsm2016.csv",
-  sep = ",", limsx = c(-180, 180), limsy = c(-90, 90), ...)
+wsm_ppp(
+  wsm = NA,
+  fname = "~/Dropbox/data/global/wsm/wsm2016.csv",
+  sep = ",",
+  limsx = c(-180, 180),
+  limsy = c(-90, 90),
+  ...
+)
 }
 \arguments{
 \item{...}{}
+}
+\value{
+
 }
 \description{
 Title

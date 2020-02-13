@@ -4,11 +4,18 @@
 \alias{convertLims}
 \title{Title}
 \usage{
-convertLims(limsx, limsy, from = CRS("+init=epsg:4326"),
-  to = CRS("+proj=laea +lat_0=-45.7 +lon_0=132.9 +ellps=WGS84"))
+convertLims(
+  limsx,
+  limsy,
+  from = CRS("+init=epsg:4326"),
+  to = CRS("+proj=laea +lat_0=-45.7 +lon_0=132.9 +ellps=WGS84")
+)
 }
 \arguments{
 \item{to}{}
+}
+\value{
+
 }
 \description{
 Title

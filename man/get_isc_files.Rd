@@ -4,11 +4,13 @@
 \alias{get_isc_files}
 \title{Title}
 \usage{
-get_isc_files(dir = "/Volumes/data/data/global/quakes/isc/srn/",
-  srn = srn)
+get_isc_files(dir = "/Volumes/data/data/global/quakes/isc/srn/", srn = srn)
 }
 \arguments{
 \item{srn}{}
+}
+\value{
+
 }
 \description{
 Title

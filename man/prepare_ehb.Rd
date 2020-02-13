@@ -4,11 +4,17 @@
 \alias{prepare_ehb}
 \title{Title}
 \usage{
-prepare_ehb(dirname = "/Volumes/data/data/global/quakes/ehb", save = T,
-  ppp = T)
+prepare_ehb(
+  dirname = "/Volumes/data/data/global/quakes/ehb19",
+  save = T,
+  ppp = T
+)
 }
 \arguments{
 \item{ppp}{}
+}
+\value{
+
 }
 \description{
 Title

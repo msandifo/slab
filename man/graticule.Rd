@@ -9,6 +9,9 @@ graticule(slab, inc = c(5, 5))
 \arguments{
 \item{inc}{}
 }
+\value{
+
+}
 \description{
 Title
 }

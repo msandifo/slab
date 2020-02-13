@@ -4,12 +4,19 @@
 \alias{set_axes_trad}
 \title{Title}
 \usage{
-set_axes_trad(e.ras, axis.width = 0.007, double = FALSE,
+set_axes_trad(
+  e.ras,
+  axis.width = 0.007,
+  double = FALSE,
   ndiscr = 100,
-  crs = "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0")
+  crs = "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
+)
 }
 \arguments{
 \item{crs}{}
+}
+\value{
+
 }
 \description{
 Title

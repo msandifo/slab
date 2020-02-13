@@ -22,4 +22,4 @@ Depends:
    spatstat,
    sf,
    magrittr   
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2

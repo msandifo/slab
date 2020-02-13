@@ -10,10 +10,15 @@ DEMderiv(data, attr = "plan.curvature", method = "evans")
 \item{method}{}
 
 \item{neighb}{}
+}
+\value{
 
-\item{neighb}{}
 
-\item{neighb}{}
+
+
+
+
+
 }
 \description{
 Title

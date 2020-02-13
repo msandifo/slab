@@ -4,15 +4,37 @@
 \alias{msPlot}
 \title{Title}
 \usage{
-msPlot(ras, ax.ext = 0.015, col = stretch_brewer(stretch = c(0.6, 0.85,
-  0.95)) \%>\% rev(), n.minor = 10, cex = 2.5, lwd = 2,
-  tick.sep = 5, lwd.ticks = 1.5, lwd.ticks.minor = 1.5, add = F,
-  major = 0.01, minor = 0.004, asp = 1, mar = c(5.1, 4.1, 4.1,
-  2.1), clip = 0, minute = TRUE, sec = FALSE, legend = FALSE,
-  trad = NA, axes = FALSE, mgp = c(3, 2, 0), rgb = F, ...)
+msPlot(
+  ras,
+  ax.ext = 0.015,
+  col = stretch_brewer(stretch = c(0.6, 0.85, 0.95)) \%>\% rev(),
+  n.minor = 10,
+  cex = 2.5,
+  lwd = 2,
+  tick.sep = 5,
+  lwd.ticks = 1.5,
+  lwd.ticks.minor = 1.5,
+  add = F,
+  major = 0.01,
+  minor = 0.004,
+  asp = 1,
+  mar = c(5.1, 4.1, 4.1, 2.1),
+  clip = 0,
+  minute = TRUE,
+  sec = FALSE,
+  legend = FALSE,
+  trad = NA,
+  axes = FALSE,
+  mgp = c(3, 2, 0),
+  rgb = F,
+  ...
+)
 }
 \arguments{
 \item{...}{}
+}
+\value{
+
 }
 \description{
 Title

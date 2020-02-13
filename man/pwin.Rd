@@ -4,11 +4,18 @@
 \alias{pwin}
 \title{Title}
 \usage{
-pwin(ppp, win = list(x = c(-97.5, -99.95, -98.3, -96.3) \%>\% rev(), y =
-  c(14.7, 15.6, 19.7, 19) \%>\% rev()), n = F)
+pwin(
+  ppp,
+  win = list(x = c(-97.5, -99.95, -98.3, -96.3) \%>\% rev(), y = c(14.7, 15.6, 19.7, 19)
+    \%>\% rev()),
+  n = F
+)
 }
 \arguments{
 \item{n}{}
+}
+\value{
+
 }
 \description{
 Title

@@ -640,8 +640,9 @@ msPlot<- function(ras,
              #    horizontal=T ,...
              )
 
-    } else
-    if (str_detect(class(ras),"Spatial")) sp::plot(ras  ,
+    }
+
+  if (str_detect(class(ras)[1],"Spatial") ) sp::plot(ras  ,
                   col=col,
                   # col=grey.colors(255, alpha = 1),
                   axes=FALSE,
@@ -649,6 +650,15 @@ msPlot<- function(ras,
                   cex.axis=2 , cex.lab=2, interpolate=T,  legend.width =2.2,
                   legend.mar=4,
                   axis.args = list(cex.axis = 2),  horizontal=T,   ...)
+ if (str_detect(class(ras)[1],"sf") )  plot(ras  ,
+                                                                    col=col,
+                                                                    # col=grey.colors(255, alpha = 1),
+                                                                    axes=FALSE,
+                                                                    legend=legend, box=FALSE, asp=1,
+                                                                    cex.axis=2 , cex.lab=2, interpolate=T,  legend.width =2.2,
+                                                                    legend.mar=4,
+                                                                    axis.args = list(cex.axis = 2),  horizontal=T,   ...)
+
    if(  axes==TRUE) {
      par(xpd=NA)
    #  clip(x.ax[1]-400, x.ax[2]+400, y.ax[1]-400, y.ax[2]+400)
@@ -1098,18 +1108,29 @@ plot_axes <- function (ras,
                        grid=T,
 
                        ...){
-
   par(xpd=NA)
-
-  if (add==FALSE) plot(extent(ras), axes=F,   lwd=0.0, col="white")#oma=c(2,2,2,2), mar=c(5,4,4,4))
   if (length(ax.ext) < 2) ax.ext<-c(ax.ext,ax.ext)
+  if (str_detect(class(ras)[1], "sf"))
+  {
 
+    message('class sf')
 
-  x.ras.lims <- extent(ras)[1:2]
-  y.ras.lims <- extent(ras)[3:4]
-  x.ras.cell.size <-  diff(x.ras.lims)/ras@ncols
-  y.ras.cell.size <- diff(y.ras.lims)/ras@nrows
-  # print(c(x.ras.cell.size,y.ras.cell.size))
+    if (add==FALSE) plot(sf::st_bbox(ras)[c(1,3,2,4)], axes=F,  lwd=0.0, col="white")#oma=c(2,2,2,2), mar=c(5,4,4,4))
+
+    x.ras.lims <- sf::st_bbox(ras)[c(1,3)]
+     y.ras.lims <- sf::st_bbox(ras)[c(2,4)]
+     x.ras.cell.size <-  diff(x.ras.lims)/1000
+     y.ras.cell.size <- diff(y.ras.lims)/1000
+
+  } else{
+    if (add==FALSE) plot(extent(ras), axes=F,   lwd=0.0, col="white")#oma=c(2,2,2,2), mar=c(5,4,4,4))
+    x.ras.lims <- extent(ras)[1:2]
+    y.ras.lims <- extent(ras)[3:4]
+    x.ras.cell.size <-  diff(x.ras.lims)/ras@ncols
+    y.ras.cell.size <- diff(y.ras.lims)/ras@nrows
+
+  }
+    print(c(x.ras.cell.size,y.ras.cell.size))
 
   x.ax.ext <- diff(x.ras.lims)*ax.ext[1]
   y.ax.ext <- diff(y.ras.lims)*ax.ext[2]
@@ -1174,7 +1195,7 @@ plot_axes <- function (ras,
   if(is.na(tick.sep))   y.ticks <- axTicks(side=2) else
     y.ticks= seq(ceiling(y.ras.lims[1]/tick.sep)*tick.sep, y.ras.lims[2], tick.sep)
 
-  #print(y.ticks)
+  print(y.ticks)
   y.ticks <- y.ticks[y.ticks>y.ax.lims[1] & y.ticks<y.ax.lims[2]]
   axis(side=2,at=y.ticks, pos=x.ax.lims[1], labels= dd2deg(y.ticks, minute=minute ),lwd=0, lwd.ticks=1, tck =major, cex.axis=cex, xpd=NA, ...)
   axis(side=4,at=y.ticks, pos=x.ax.lims[2],labels=FALSE, lwd=0, lwd.ticks=1, tck =major, cex.axis=cex, xpd=NA)

@@ -9,6 +9,9 @@ join_isc(srn = 8:9, ppp = F, win = owin())
 \arguments{
 \item{win}{}
 }
+\value{
+
+}
 \description{
 Title
 }

@@ -4,11 +4,19 @@
 \alias{get_slab_details}
 \title{Title}
 \usage{
-get_slab_details(longlat = c(-94.11, 14.85), slab, plates = NA,
-  win = NA, ll = F)
+get_slab_details(
+  longlat = c(-94.11, 14.85),
+  slab,
+  plates = NA,
+  win = NA,
+  ll = F
+)
 }
 \arguments{
 \item{ll}{}
+}
+\value{
+
 }
 \description{
 Title

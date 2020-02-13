@@ -9,6 +9,9 @@ flow_directions(my.raster, size = 24000, asRaster = T, useRGDAL = T)
 \arguments{
 \item{useRGDAL}{}
 }
+\value{
+
+}
 \description{
 Title
 }

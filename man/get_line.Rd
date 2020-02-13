@@ -4,11 +4,22 @@
 \alias{get_line}
 \title{Title}
 \usage{
-get_line(long = -100, lat = 15, length = 5, width = 0,
-  angle = 15, psp = T, win = NA, n = 101)
+get_line(
+  long = -100,
+  lat = 15,
+  length = 5,
+  width = 0,
+  angle = 15,
+  psp = T,
+  win = NA,
+  n = 101
+)
 }
 \arguments{
 \item{n}{}
+}
+\value{
+
 }
 \description{
 Title

@@ -4,12 +4,23 @@
 \alias{get_ghss}
 \title{Title}
 \usage{
-get_ghss(fn = get_gshhg_file(), xlim = c(138, 152), ylim = c(-41.5,
-  -33), factor = 0.25, level = 1, no.clip = F, properly = T,
-  checkPolygons = F, ...)
+get_ghss(
+  fn = get_gshhg_file(),
+  xlim = c(138, 152),
+  ylim = c(-41.5, -33),
+  factor = 0.25,
+  level = 1,
+  no.clip = F,
+  properly = T,
+  checkPolygons = F,
+  ...
+)
 }
 \arguments{
 \item{...}{}
+}
+\value{
+
 }
 \description{
 Title

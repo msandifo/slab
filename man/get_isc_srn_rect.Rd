@@ -4,12 +4,20 @@
 \alias{get_isc_srn_rect}
 \title{Title}
 \usage{
-get_isc_srn_rect(rect = c(-105, -88, 12.5, 20), min.mag = 5,
-  mag.type = "MS", year = 2014, agcy = "Any",
-  out.dir = "/Volumes/data/data/global/quakes/isc/tmp/")
+get_isc_srn_rect(
+  rect = c(-105, -88, 12.5, 20),
+  min.mag = 5,
+  mag.type = "MS",
+  year = 2014,
+  agcy = "Any",
+  out.dir = "/Volumes/data/data/global/quakes/isc/tmp/"
+)
 }
 \arguments{
 \item{out.dir}{}
+}
+\value{
+
 }
 \description{
 Title

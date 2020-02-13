@@ -9,6 +9,9 @@ plotElipse(x, y, r)
 \arguments{
 \item{r}{}
 }
+\value{
+
+}
 \description{
 Title
 }

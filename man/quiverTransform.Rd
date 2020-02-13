@@ -4,14 +4,27 @@
 \alias{quiverTransform}
 \title{Title}
 \usage{
-quiverTransform(flows,
+quiverTransform(
+  flows,
   from = CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"),
-  to = laea, add = T, by = 5, arr.max = 0.3, arr.min = 0.3,
-  scale = 0.3, lwd = 8, type = "simple", NAcol = rgb(1, 1, 1, alpha
-  = 0), col = "white", alpha = 0.7)
+  to = laea,
+  add = T,
+  by = 5,
+  arr.max = 0.3,
+  arr.min = 0.3,
+  scale = 0.3,
+  lwd = 8,
+  type = "simple",
+  NAcol = rgb(1, 1, 1, alpha = 0),
+  col = "white",
+  alpha = 0.7
+)
 }
 \arguments{
 \item{alpha}{}
+}
+\value{
+
 }
 \description{
 Title

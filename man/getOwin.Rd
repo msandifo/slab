@@ -9,6 +9,9 @@ getOwin(limsx, limsy)
 \arguments{
 \item{limsy}{}
 }
+\value{
+
+}
 \description{
 Title
 }

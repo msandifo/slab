@@ -9,6 +9,9 @@ get_plate_boundary_ids(plates)
 \arguments{
 \item{plates}{}
 }
+\value{
+
+}
 \description{
 Title
 }

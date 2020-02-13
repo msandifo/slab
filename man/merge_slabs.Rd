@@ -4,11 +4,17 @@
 \alias{merge_slabs}
 \title{Title}
 \usage{
-merge_slabs(slabs = list(mex, sam), extend.lims = c(0, 0, 0, 0),
-  slab.name = "mex.sam")
+merge_slabs(
+  slabs = list(mex, sam),
+  extend.lims = c(0, 0, 0, 0),
+  slab.name = "mex.sam"
+)
 }
 \arguments{
 \item{slab.name}{}
+}
+\value{
+
 }
 \description{
 Title

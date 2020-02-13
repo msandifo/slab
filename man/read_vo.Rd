@@ -4,11 +4,19 @@
 \alias{read_vo}
 \title{Title}
 \usage{
-read_vo(vfile = "~/Dropbox/data/global/volcanoes/volcano1.csv",
-  limsx = c(-180, 180), limsy = c(-90, 90), ppp = TRUE, to = NA)
+read_vo(
+  vfile = "~/Dropbox/data/global/volcanoes/volcano1.csv",
+  limsx = c(-180, 180),
+  limsy = c(-90, 90),
+  ppp = TRUE,
+  to = NA
+)
 }
 \arguments{
 \item{to}{}
+}
+\value{
+
 }
 \description{
 Title

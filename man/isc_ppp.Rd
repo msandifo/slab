@@ -9,6 +9,9 @@ isc_ppp(isc.df, win = NA)
 \arguments{
 \item{win}{}
 }
+\value{
+
+}
 \description{
 Title
 }

@@ -9,6 +9,9 @@ get_coasts(lims = c(-107, -88, 117, 22), spatial = T, detail = "i")
 \arguments{
 \item{detail}{}
 }
+\value{
+
+}
 \description{
 Title
 }

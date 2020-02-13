@@ -4,11 +4,19 @@
 \alias{read_cmt}
 \title{Title}
 \usage{
-read_cmt(fname = "~/Dropbox/data/global/quakes/cmt/cmt1.RData",
-  limsx = c(-180, 180), limsy = c(-90, 90), ppp = T, simplify = F)
+read_cmt(
+  fname = "~/Dropbox/data/global/quakes/cmt/cmt1.RData",
+  limsx = c(-180, 180),
+  limsy = c(-90, 90),
+  ppp = T,
+  simplify = F
+)
 }
 \arguments{
 \item{simplify}{}
+}
+\value{
+
 }
 \description{
 Title

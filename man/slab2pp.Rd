@@ -9,6 +9,9 @@ slab2pp(slab, verbose = F, case = 1)
 \arguments{
 \item{case}{}
 }
+\value{
+
+}
 \description{
 Title
 }

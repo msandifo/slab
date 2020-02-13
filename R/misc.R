@@ -34,115 +34,6 @@ get_plate_boundary_ids <- function(plates) {
 }
 
 
-#'
-#' #' Title
-#' #'
-#' #' @param df
-#' #' @param axis
-#' #' @param scale
-#' #' @param bearing
-#' #' @param profile
-#' #' @param test
-#' #'
-#' #' @return
-#' #' @export
-#' #'
-#' #' @examples
-#' project_axes <- function(df, axis="T", scale=10, bearing=18, profile="1", test=F){
-#'   if(test){df<-pro.ppp
-#'   axis<- "T"
-#'   bearing=18
-#'   scale=10
-#'   profile="1"
-#'   }
-#'   if (axis=="T"){ azi= df$marks$ta; plunge=df$marks$tp;
-#'   if (is.na(bearing)) bearing= df$marks$bearing
-#'   }
-#'   if (axis=="P"){ azi= df$marks$pa; plunge=df$marks$pp;  if (is.na(bearing)) bearing= df$marks$bearing }
-#'   if (axis=="B"){ azi= df$marks$ba; plunge=df$marks$bp;  if (is.na(bearing)) bearing= df$marks$bearing }
-#'
-#'   pro.bearing <- (azi - bearing)
-#'   pro.bearing[pro.bearing>180] <-  pro.bearing[pro.bearing>180]-360
-#'   ends.xy.plan <-  cos((pro.bearing)* pi/180)
-#'   ends.xy <- -scale* cos(plunge* pi/180) *  ends.xy.plan
-#'   ends.z <- scale* sin(plunge* pi/180)
-#'
-#'   # pro.sign <- 0 * pro.bearing +1
-#'   # pro.sign[abs(pro.bearing) < 90] <- -1
-#'   #print(data.frame(azi, pro.bearing, azi-pro.bearing, pro.sign))
-#'
-#'   # if (abs(pro.bearing) > 90) ends.z <- -ends.z
-#'   data.frame(x=df$marks$boundary.distance+ ends.xy  ,
-#'              xend= df$marks$boundary.distance-ends.xy ,
-#'              y= df$marks$depth-(ends.z ),
-#'              yend= df$marks$depth+(ends.z ),
-#'              regime=df$marks$regime,
-#'              pro.bearing=pro.bearing,
-#'              profile=profile,
-#'              axis= axis)
-#' }
-
-#' project_ppp1 <- function() project_ppp(...)
-#' #' Title
-#' #'
-#' #' @param my.ppp
-#' #' @param plates
-#' #' @param profile
-#' #'
-#' #' @return
-#' #' @export
-#' #'
-#' #' @examples
-#' project_ppp <- function(my.ppp, plates, profile=NULL) {
-#'
-#'   proj.cmt <-project2segment(my.ppp,  plates)
-#'   #v <- project2segment(X,Y)
-#'   Xproj <- proj.cmt$Xproj
-#'   my.ppp$marks$pro.long <- proj.cmt$Xproj$x
-#'   my.ppp$marks$pro.lat <- proj.cmt$Xproj$y
-#'   my.ppp$marks$boundary.distance <-geosphere::distGeo(my.ppp %>% as.SpatialPoints.ppp(), Xproj %>% as.SpatialPoints.ppp() )/1000
-#'   my.ppp$marks$bearing <- bearing(my.ppp$marks[c("pro.long","pro.lat")],
-#'                                   dplyr::select(my.ppp$marks, starts_with("lon"), starts_with("lat") )
-#'   )
-#'   if (!is.null(profile) ) my.ppp$marks$profile <- profile
-#'   return(my.ppp)
-#' }# from bo
-#'
-#'
-#' #' vectroized version of gzAzimuth
-#' #'
-#' #' @param from
-#' #' @param to
-#' #' @param type
-#' #'
-#' #' @return
-#' #' @export
-#' #'
-#' #' @examples
-#' bearing <-function (from, to, type = "snyder_sphere")
-#' {
-#'   deg2rad <- function(x) x * pi/180
-#'   rad2deg <- function(x) x * 180/pi
-#'
-#'   lon <- -deg2rad(from[, 1])
-#'   lat <- deg2rad(from[, 2])
-#'   lon0 <- -deg2rad(to[,1])
-#'   lat0 <- deg2rad(to[,2])
-#'
-#'
-#'   dflon = lon - lon0
-#'   if (type == "abdali")
-#'     res <- base::atan2(sin(dflon), ((cos(lat) * tan(lat0)) - (sin(lat) *
-#'                                                                 cos(dflon))))
-#'   else if (type == "snyder_sphere")
-#'     res <- base::atan2((cos(lat0) * sin(dflon)), (cos(lat) * sin(lat0)) -
-#'                          (sin(lat) * cos(lat0) * cos(dflon)))
-#'   else stop("type unkown")
-#'   is.na(res) <- lon == lon0 & lat == lat0
-#'   rad2deg(res)
-#' }
-#'
-#'
 
 #' Title
 #'
@@ -291,6 +182,7 @@ plotElipse <- function(x, y, r) {#Gary's function ;-)
   angles <- seq(0,2*pi,length.out=360)
   lines(r*cos(angles)+x,r*sin(angles)+y)
 }
+
 #' Title
 #'
 #' @param LonDec
@@ -538,4 +430,114 @@ get_isc_srn_rect <- function(rect=c(-105, -88,12.5,20 ), min.mag=5,
   download.file(srn.q.string, out.file, method="wget")
   return(out.file)
 }
+
+#'
+#' #' Title
+#' #'
+#' #' @param df
+#' #' @param axis
+#' #' @param scale
+#' #' @param bearing
+#' #' @param profile
+#' #' @param test
+#' #'
+#' #' @return
+#' #' @export
+#' #'
+#' #' @examples
+#' project_axes <- function(df, axis="T", scale=10, bearing=18, profile="1", test=F){
+#'   if(test){df<-pro.ppp
+#'   axis<- "T"
+#'   bearing=18
+#'   scale=10
+#'   profile="1"
+#'   }
+#'   if (axis=="T"){ azi= df$marks$ta; plunge=df$marks$tp;
+#'   if (is.na(bearing)) bearing= df$marks$bearing
+#'   }
+#'   if (axis=="P"){ azi= df$marks$pa; plunge=df$marks$pp;  if (is.na(bearing)) bearing= df$marks$bearing }
+#'   if (axis=="B"){ azi= df$marks$ba; plunge=df$marks$bp;  if (is.na(bearing)) bearing= df$marks$bearing }
+#'
+#'   pro.bearing <- (azi - bearing)
+#'   pro.bearing[pro.bearing>180] <-  pro.bearing[pro.bearing>180]-360
+#'   ends.xy.plan <-  cos((pro.bearing)* pi/180)
+#'   ends.xy <- -scale* cos(plunge* pi/180) *  ends.xy.plan
+#'   ends.z <- scale* sin(plunge* pi/180)
+#'
+#'   # pro.sign <- 0 * pro.bearing +1
+#'   # pro.sign[abs(pro.bearing) < 90] <- -1
+#'   #print(data.frame(azi, pro.bearing, azi-pro.bearing, pro.sign))
+#'
+#'   # if (abs(pro.bearing) > 90) ends.z <- -ends.z
+#'   data.frame(x=df$marks$boundary.distance+ ends.xy  ,
+#'              xend= df$marks$boundary.distance-ends.xy ,
+#'              y= df$marks$depth-(ends.z ),
+#'              yend= df$marks$depth+(ends.z ),
+#'              regime=df$marks$regime,
+#'              pro.bearing=pro.bearing,
+#'              profile=profile,
+#'              axis= axis)
+#' }
+
+#' project_ppp1 <- function() project_ppp(...)
+#' #' Title
+#' #'
+#' #' @param my.ppp
+#' #' @param plates
+#' @param profile
+#'
+#' @return
+#' @export
+#'
+#' @examples
+project_ppp <- function(my.ppp, plates, profile=NULL) {
+
+  proj.cmt <-project2segment(my.ppp,  plates)
+  #v <- project2segment(X,Y)
+  Xproj <- proj.cmt$Xproj
+  my.ppp$marks$pro.long <- proj.cmt$Xproj$x
+  my.ppp$marks$pro.lat <- proj.cmt$Xproj$y
+  my.ppp$marks$boundary.distance <-geosphere::distGeo(my.ppp %>% as.SpatialPoints.ppp(), Xproj %>% as.SpatialPoints.ppp() )/1000
+  my.ppp$marks$bearing <- bearing(my.ppp$marks[c("pro.long","pro.lat")],
+                                  dplyr::select(my.ppp$marks, starts_with("lon"), starts_with("lat") )
+  )
+  if (!is.null(profile) ) my.ppp$marks$profile <- profile
+  return(my.ppp)
+}# from bo
+
+#'
+#' vectroized version of gzAzimuth
+#'
+#' @param from
+#' @param to
+#' @param type
+#'
+#' @return
+#' @export
+#'
+#' @examples
+bearing <-function (from, to, type = "snyder_sphere")
+{
+  deg2rad <- function(x) x * pi/180
+  rad2deg <- function(x) x * 180/pi
+
+  lon <- -deg2rad(from[, 1])
+  lat <- deg2rad(from[, 2])
+  lon0 <- -deg2rad(to[,1])
+  lat0 <- deg2rad(to[,2])
+
+
+  dflon = lon - lon0
+  if (type == "abdali")
+    res <- base::atan2(sin(dflon), ((cos(lat) * tan(lat0)) - (sin(lat) *
+                                                                cos(dflon))))
+  else if (type == "snyder_sphere")
+    res <- base::atan2((cos(lat0) * sin(dflon)), (cos(lat) * sin(lat0)) -
+                         (sin(lat) * cos(lat0) * cos(dflon)))
+  else stop("type unkown")
+  is.na(res) <- lon == lon0 & lat == lat0
+  rad2deg(res)
+}
+
+
 

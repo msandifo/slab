@@ -9,6 +9,9 @@ setClip(ras)
 \arguments{
 \item{ras}{}
 }
+\value{
+
+}
 \description{
 Title
 }

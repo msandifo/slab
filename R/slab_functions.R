@@ -115,14 +115,14 @@ assemble_slab <- function(slab = NA,
                           extend.lims = c(-1, 1, -1, 1),
                           slab.dir = "/Volumes/data/data/global/slabs/slab1/allslabs/",
                           etopo = "~/Dropbox/data/global/topography/etopo/ETOPO1_Bed_g_geotiff.tif",
-                          slab2 =F,
+                          slab2 =T,
                           fact = 1,
                           detail="h",
-                          borders=T,
-                          plates=T,
+                          borders=F,
+                          plates=F,
                           rivers=T,
                           coasts=T,
-                          ppp=T, # for extarcting coasts, rivers etc.
+                          ppp=F, # for extarcting coasts, rivers etc.
                           simplify=F,  #limits regiems in cmt to NF, TF , SS- still need to modify ..... wsm
                           ...) {
   #assemble slab 1.0 rasters
@@ -201,7 +201,7 @@ print(slab.name)
     hf
 
   message("... volcanoes")
-  read_vo(limsx = limsx, limsy = limsy )%>%
+  read_vo1(limsx = limsx, limsy = limsy )%>%
     ppp2spdf (full.extent) %>%
     add_slab_depth(  slab )->
     vo
@@ -217,10 +217,11 @@ print(slab.name)
   #--geography
 case=1
 
-  message("... loading coasts")
   library(maptools)
   #coasts <- get_coasts( full.extent, sp=T, detail="h")
 if(coasts) {
+  message("... loading coasts")
+
 if (case==1)  {coastlines<-   rnaturalearthhires::coastline10 %>%
   st_as_sfc() %>%
   st_crop( extent(slab))  %>%
@@ -234,9 +235,9 @@ if (case==1)  {coastlines<-   rnaturalearthhires::coastline10 %>%
    fortify() %>%subset(long >= limsx[1] & long <= limsx[2] & lat >= limsy[1] & lat<= limsy[2]) %>% #crop(borders,full.extent)
    df2spline()
 } else {coasts=NA; coastlines=NA}
-  message("loading rivers")
+
   #rivers <- get_rivers( full.extent, sp=T, detail="h")
- if(rivers) {
+ if(rivers) {   message("loading rivers")
    if (case==1)
     rivers <- rbind(get_sf(get_wdbii_file(river=T, level=1, res="i"), slab, sp=F),
                      get_sf(get_wdbii_file(river=T, level=2, res="i"), slab, sp=F),
@@ -266,11 +267,11 @@ if (borders){
   bordersi=NA}
   #crop(borders,full.extent)
 
-  message("... loading plates")
+
 
   #plates= get_plates()#crop( full.extent)
 
-  if(plates){
+  if(plates){   message("... loading plates")
   if (case==1){
    plates= get_sf("~/Dropbox/data/global/polygons/tectonicplates-master/PB2002_boundaries.shp" , slab, sp=F) %>%
      add_column(., ID=as.numeric(row.names(.)), .before = "LAYER") %>%
@@ -310,6 +311,14 @@ if (borders){
 
 }
 
+#' Title
+#'
+#' @param ras
+#'
+#' @return
+#' @export
+#'
+#' @examples
 is.ras <- function(ras) {
   class(ras)[1] %in% c("Raster", "RasterLayer", "RasterBrick", "RasterStack")
 
@@ -460,9 +469,14 @@ merge_slabs <-
 #'
 #' @examples
 load_slab <- function(slab.name = "izu",
-                      slab.dir = "/Users/msandifo/Dropbox/msandifo/documents/programming/r/2017/ecuador/data/slab1/allslabs/") {
-  load(paste0(slab.dir, slab.dir, ".RData"))
+                      slab.dir = "/Volumes/data/data/global/slabs/slab1/slabs") {
+  load(paste0( slab.dir, ".RData"))
 }
+
+# load_slab2 <- function(slab.name = "izu",
+#                       slab.dir = "/Users/msandifo/Dropbox/msandifo/documents/programming/r/2017/ecuador/data/slab2/allslabs/") {
+#   load(paste0(slab.dir, slab.dir, ".RData"))
+# }
 
 #-
 
@@ -483,6 +497,72 @@ ras_plancurv <- function(ras,  method="evans", fact=1, foc=25, stretch.plan=c(.2
     ras1<- ras  %>% raster::focal(w=matrix(1, foc,foc), mean)
   DEMderiv(ras1,"plan.curvature",method) %>% resample(ras) %>% stretch_ras(stretch.plan)
 }
+
+
+#' Title
+#'
+#' @param vfile
+#' @param limsx
+#' @param limsy
+#' @param ppp
+#' @param to
+#'
+#' @return
+#' @export
+#'
+#' @examples
+read_vo1 <- function(vfile = '~/Dropbox/data/global/volcanoes/',
+                     limsx = c(-180, 180),
+                     #can be a raster, extent object or 2-length vector
+                     limsy = c(-90, 90),
+                     #only used if limsx is a 2-length vec
+                     ppp = TRUE,
+                     to = NA) {
+
+
+  vh<- read.csv(paste0(vfile,"GVP_Volcano_List_Holocene.csv"), skip=1)%>% dplyr::mutate(file="Holocene")
+  vp <-read.csv(paste0(vfile,"GVP_Volcano_List_Pleistocene.csv"), skip=1)%>% dplyr::mutate(file="Pleistocene")
+  v <-dplyr::bind_rows(vh, vp)
+  names(v) <- stringr::str_to_upper(names(v))
+  if (is.ras(limsx)) {
+    limsx <-
+      extent(raster)[1:2]
+    limsy <-  extent(raster)[3:4]
+  }
+  if (length(limsx) >= 4) {
+    limsy = limsx[3:4]
+    limsx = limsx[1:2]
+  }
+  # v <- read.csv(vfile)
+  # v$LONGITUDE = v$LONGITUDE * v$EW
+  # v$LATITUDE = v$LATITUDE * v$NS
+  v <-
+    subset(v,
+           LONGITUDE >= limsx[1] &
+             LONGITUDE <= limsx[2] &
+             LATITUDE >= limsy[1] & LATITUDE <= limsy[2])
+
+  if (!is.na(to)) {
+    v1 <-
+      data.frame (long = v$LONGITUDE, lat = v$LATITUDE)  %>% convertPts(to = to)
+    v$LONGITUDE <- v1[, 1]
+    v$LATITUDE <- v1[, 2]
+  }
+  # print(head(v))
+  names(v)[match(c("LONGITUDE", "LATITUDE"), names(v))] <-
+    c("long", "lat")
+  names(v) <- str_to_lower(names(v)) %>% str_replace_all(" ","")
+
+  names(v)[match(c("name"), names(v))] <-
+    c("vo.name")
+  message("volcano names : ", str_c(names(v), ", "))
+  if (!ppp)
+    return(v)
+  else
+    return(spatstat::ppp(v$long, v$lat, limsx, limsy, marks = v ))#[, c(1, 2, 3, 4, 5, 6, 7, 8, 11,13)]))
+
+}
+
 
 #' Title
 #'
@@ -621,14 +701,15 @@ read_hf <-
 #'
 #' @examples
 prepare_ehb <-
-  function(dirname = "/Volumes/data/data/global/quakes/ehb",
+  function(dirname = "/Volumes/data/data/global/quakes/ehb19",
            save = T, ppp=T) {
     hdf.files <-
       list.files(path = dirname,
                  pattern = "\\.hdf$",
                  full.names = T)
 
-    print(hdf.files)
+    print(tail(basename(hdf.files)))
+
     ehb.format <-
       list(
         c(
@@ -702,25 +783,30 @@ prepare_ehb <-
     # max( ehb$glon)
     # head( ehb)
     #
-
+    read.fortran.year <- function(...){
+      df<-read.fortran(...)
+      df$iyr= stringr::str_sub(basename(file),1,4) %>% as.numeric()
+      }
     ehb <-
       map_dfr(
-        hdf.files,
+       hdf.files,
         read.fortran,
         format = ehb.format,
         as.is = FALSE,
         colClasses =  col.classes,
         col.names = col.names
       )
-    ehb$c <-
-      "19"
-    ehb$c[ehb$iyr < 50] <- "200" #used to get full years in prep for time
+    ehb$c <-"19"
+    ehb$c[ehb$iyr < 10  ] <- "200" #used to get full years in prep for time
+    ehb$c[ehb$iyr < 50 & ehb$iyr>9  ] <- "20" #used to get full years in prep for time
+    print(tail(paste(paste0(ehb$c, ehb$iyr), ehb$mon, ehb$iday, sep = "/")))
     ehb$time <-
       lubridate::ymd_hms(paste0(
         paste(paste0(ehb$c, ehb$iyr), ehb$mon, ehb$iday, sep = "/"),
         " ",
         paste(ehb$ihr, ehb$min, ehb$sec, sep = ":")
       ))
+    print(tail(ehb$time))
     if (ppp) ehb  <-
       spatstat::ppp(ehb$long, ehb$lat, c(-180, 180), c(-90, 90), marks = ehb[, c(1:3, 10, 11:32, 34)])
 
@@ -749,7 +835,8 @@ read_ehb <- function(ehb = NA,
                      #only used if limsx is a 2-length vec
                      ppp = TRUE,
                      to = NA,
-                     fname = "~/Dropbox/data/global/quakes/ehb/ehb.Rdata") {
+                     #fname = "~/Dropbox/data/global/quakes/ehb/ehb.Rdata",
+                     fname = "/Volumes/data/data/global/quakes/ehb19/ehb.Rdata") {
   if (is.na(ehb))
     load(fname)
   if (is.ras(limsx)) {
@@ -1053,6 +1140,16 @@ add_slab_depth <- function(my.points, slab, anom=NULL){
 
 #' Title
 #'
+#' @param spa
+#'
+#' @return
+#' @export
+#'
+#' @examples
+projNA <- function(spa) {proj4string(spa) <- CRS() ; spa}
+
+#' Title
+#'
 #' @param ...
 #'
 #' @return
@@ -1074,19 +1171,26 @@ slab2ppp <- function(...){
 #'
 #' @examples
 slab2pp <- function(slab, verbose=F, case =1){
+
+
  if (case ==1){
-   slab$borders %>% as.psp() -> slab$borders.psp
-   slab$bordersi %>% as.psp() -> slab$bordersi.psp}
+  print("...")
+   if(!is.na(slab$borders))   slab$borders  %>% projNA() %>% as.psp() -> slab$borders.psp
+   if(!is.na(slab$bordersi))  slab$bordersi %>% projNA() %>% as.psp() -> slab$bordersi.psp}
   else
-   slab$borders %>% spp2spl( ) %>% as.psp() -> slab$borders.psp
-    slab$coastlines     %>% as.psp() -> slab$coastlines.psp
+    if(!is.na(slab$borders))  slab$borders %>% projNA() %>% spp2spl( ) %>% as.psp() -> slab$borders.psp
+
+  print("1...")
+   if(!is.na(slab$coastlines)) slab$coastlines %>% projNA() %>% as.psp() -> slab$coastlines.psp
     # slab$plates  %>% spp2spl( ) %>% as.psp() -> slab$plates.ppp
-    slab$plates    %>% as.psp() -> slab$plates.ppp
-  slab$vo %>% as.ppp() -> slab$vo.ppp
-  slab$hf %>% as.ppp() -> slab$hf.ppp
-  slab$cmt %>% as.ppp() -> slab$cmt.ppp
-  slab$wsm %>% as.ppp() -> slab$wsm.ppp
-  slab$ehb %>% as.ppp() -> slab$ehb.ppp
+  print("2...")
+  if(!is.na(slab$plates))  slab$plates  %>% projNA()  %>%as.psp() -> slab$plates.ppp
+  print("3...")
+  if(!is.na(slab$vo))  slab$vo  %>% projNA() %>% as.ppp() -> slab$vo.ppp
+  if(!is.na(slab$hf))  slab$hf  %>% projNA() %>% as.ppp() -> slab$hf.ppp
+  if(!is.na(slab$cmt)) slab$cmt %>% projNA() %>% as.ppp() -> slab$cmt.ppp
+  if(!is.na(slab$wsm)) slab$wsm %>% projNA() %>% as.ppp() -> slab$wsm.ppp
+  if(!is.na(slab$ehb)) slab$ehb %>% projNA() %>% as.ppp() -> slab$ehb.ppp
   if (verbose) print(slab %>% str(max =1))
   slab
 }

@@ -9,6 +9,9 @@ stretch_brewer(pal = "RdYlGn", stretch = 0.5, n = 255)
 \arguments{
 \item{n}{}
 }
+\value{
+
+}
 \description{
 Title
 }

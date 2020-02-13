@@ -4,12 +4,25 @@
 \alias{plot_vo}
 \title{Plot volcanoes}
 \usage{
-plot_vo(vo = NA, limsx = c(-180, 180), limsy = c(-90, 90), cex = 1,
-  col = "BLACK", pch = 24, bg = "yellow", to = NA, lwd = 2,
-  doplot = TRUE, ppp = T)
+plot_vo(
+  vo = NA,
+  limsx = c(-180, 180),
+  limsy = c(-90, 90),
+  cex = 1,
+  col = "BLACK",
+  pch = 24,
+  bg = "yellow",
+  to = NA,
+  lwd = 2,
+  doplot = TRUE,
+  ppp = T
+)
 }
 \arguments{
 \item{ppp}{}
+}
+\value{
+
 }
 \description{
 Plot volcanoes

@@ -4,11 +4,18 @@
 \alias{add_topo_stack}
 \title{Title}
 \usage{
-add_topo_stack(slab, fact = 1, extend.lims = c(-1, 1, -1, 1),
-  etopo = "/Volumes/data/data/global/topography/etopo/ETOPO1_Bed_g_geotiff.tif")
+add_topo_stack(
+  slab,
+  fact = 1,
+  extend.lims = c(-1, 1, -1, 1),
+  etopo = "/Volumes/data/data/global/topography/etopo/ETOPO1_Bed_g_geotiff.tif"
+)
 }
 \arguments{
 \item{etopo}{}
+}
+\value{
+
 }
 \description{
 Title

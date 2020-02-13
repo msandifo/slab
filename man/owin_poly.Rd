@@ -9,6 +9,9 @@ owin_poly(ow, close = T, df = T)
 \arguments{
 \item{df}{}
 }
+\value{
+
+}
 \description{
 Title
 }

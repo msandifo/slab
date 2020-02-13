@@ -309,7 +309,7 @@ plot_wsm <-
 
     if (class(wsm) != 'ppp')
       #wsm <- wsm_ppp(wsm, limsx = limsx, limsy = limsy, Tax=F, Pax=F)  # convert to ppp
-    wsm %>% as.ppp() -> wsm
+    wsm %>% projNA()%>% as.ppp() -> wsm
 
     if (lines == T) {
       ismp <- wsm_lines(wsm, scale = scale, Tax=Tax, Pax=Pax)
@@ -424,7 +424,9 @@ plot_vo <- function(vo = NA,
 plot_kernel <- function(df, cuts= c(3.5, 6.4,10), min=0,  xlim=c(0,400),
                         ylim=c(0,0.016), position=NA , alpha=.3, bw="SJ",
                         stroke=0.35,
-                        kernel="triangular", legend.position=c(.9, .75), show.leg=T, points=F, mscale=2, mlimit=4){
+                        kernel="triangular",
+                        legend.position=c(.9, .75),
+                        show.leg=T, points=F, mscale=2, mlimit=4  ){
   df$m <-pmax(df$ms, df$mb )
   df <- df %>% subset(m >min)
   df$Mw <-  cut(df$m, cuts)
@@ -438,7 +440,8 @@ plot_kernel <- function(df, cuts= c(3.5, 6.4,10), min=0,  xlim=c(0,400),
     # geom_vline( xintercept=c(100,300), size=.2, linetype=2)+
 
 
-  if (points) p1<-p1+geom_point(data=df, aes(x= boundary.distance, y = (m-mlimit)/(1000/mscale), size=depth ), show.legend=T, shape=1, stroke=stroke)+
+  if (points) p1<-p1+
+    geom_point(data=df, aes(x= boundary.distance, y = (m-mlimit)/(1000/mscale), size=depth ), show.legend=T, shape=1, stroke=stroke)+
     scale_radius(range=c(1,10)) + scale_y_continuous(sec.axis = sec_axis(~.*(1000/mscale) +mlimit, name="Mw"), expand = c(0,0),limits=ylim) else
       p1 <- p1+  scale_x_continuous(expand = c(0,0), limits=xlim)
 
@@ -450,54 +453,54 @@ project_kernel1 <- function(...){
   project_kernel(...)
 }
 
-#' #' Title
-#' #'
-#' #' @param df
-#' #' @param cuts
-#' #' @param min
-#' #' @param xlim
-#' #' @param ylim
-#' #' @param position
-#' #' @param alpha
-#' #' @param bw
-#' #' @param stroke
-#' #' @param size
-#' #' @param kernel
-#' #' @param legend.position
-#' #' @param show.leg
-#' #' @param points
-#' #' @param mscale
-#' #' @param mlimit
-#' #' @param regime
-#' #'
-#' #' @return
-#' #' @export
-#' #'
-#' #' @examples
-#' plot_kernel <- function(df, cuts= c(3.5, 6.4,10), min=0,  xlim=c(0,400),
-#'                         ylim=c(0,0.016), position=NA , alpha=.3, bw="SJ",stroke=.35,size=.5,
-#'                         kernel="triangular", legend.position=c(.9, .75), show.leg=T, points=F, mscale=2, mlimit=4, regime=F){
+#' Title
 #'
-#'   if (length(size==1)) size= c(size, size*.66)
-#'   df$m <-pmax(df$ms, df$mb )
-#'   df <- df %>% subset(m >min)
-#'   df$Mw <-  cut(df$m, cuts)
+#' @param df
+#' @param cuts
+#' @param min
+#' @param xlim
+#' @param ylim
+#' @param position
+#' @param alpha
+#' @param bw
+#' @param stroke
+#' @param size
+#' @param kernel
+#' @param legend.position
+#' @param show.leg
+#' @param points
+#' @param mscale
+#' @param mlimit
+#' @param regime
 #'
-#'   p1 <- ggplot()+
-#'     hrbrthemes::theme_ipsum(axis = TRUE, ticks = F,grid=c("XY"),axis_text_size=14, axis_title_size=18)+
-#'     theme(panel.grid.minor=element_blank() )+
-#'     geom_density(data=df, aes( distance ), fill="white", linetype=2, size=size[2], show.legend = F, bw=bw, kernel=kernel)+
-#'     theme(legend.position = legend.position ) +
-#'     labs(x="distance - kms", y="kernel density estimate")
-#'   # geom_vline( xintercept=c(100,300), size=.2, linetype=2)+
+#' @return
+#' @export
 #'
-#'
-#'   if (points) p1<-p1+geom_point(data=df, aes(x=  distance, y = (m-mlimit)/(1000/mscale), size=depth, colour=regime ), show.legend=T, shape=1, stroke=stroke)+
-#'     scale_radius(range=c(1,10)) + scale_y_continuous(sec.axis = sec_axis(~.*(1000/mscale) +mlimit, name="Mw"), expand = c(0,0),limits=ylim)+  scale_x_continuous(expand = c(0,0), limits=xlim) else
-#'       p1 <- p1+  scale_x_continuous(expand = c(0,0), limits=xlim)
-#'
-#'   if (is.na(position)) p1+ geom_density(data=df %>% subset(!is.na(Mw)), aes( distance , fill=Mw),alpha=alpha , size=size[1], bw=bw) else
-#'     p1+ geom_density(data=df %>% subset(!is.na(Mw)), aes( distance ,fill=Mw), position = position, alpha=alpha, show.legend = F, kernel=kernel)
-#' }
+#' @examples
+plot_kernel_old <- function(df, cuts= c(3.5, 6.4,10), min=0,  xlim=c(0,400),
+                        ylim=c(0,0.016), position=NA , alpha=.3, bw="SJ",stroke=.35,size=.5,
+                        kernel="triangular", legend.position=c(.9, .75), show.leg=T, points=F, mscale=2, mlimit=4, regime=F){
+
+  if (length(size==1)) size= c(size, size*.66)
+  df$m <-pmax(df$ms, df$mb )
+  df <- df %>% subset(m >min)
+  df$Mw <-  cut(df$m, cuts)
+
+  p1 <- ggplot()+
+    hrbrthemes::theme_ipsum(axis = TRUE, ticks = F,grid=c("XY"),axis_text_size=14, axis_title_size=18)+
+    theme(panel.grid.minor=element_blank() )+
+    geom_density(data=df, aes( distance ), fill="white", linetype=2, size=size[2], show.legend = F, bw=bw, kernel=kernel)+
+    theme(legend.position = legend.position ) +
+    labs(x="distance - kms", y="kernel density estimate")
+  # geom_vline( xintercept=c(100,300), size=.2, linetype=2)+
+
+
+  if (points) p1<-p1+geom_point(data=df, aes(x=  distance, y = (m-mlimit)/(1000/mscale), size=depth, colour=regime ), show.legend=T, shape=1, stroke=stroke)+
+    scale_radius(range=c(1,10)) + scale_y_continuous(sec.axis = sec_axis(~.*(1000/mscale) +mlimit, name="Mw"), expand = c(0,0),limits=ylim)+  scale_x_continuous(expand = c(0,0), limits=xlim) else
+      p1 <- p1+  scale_x_continuous(expand = c(0,0), limits=xlim)
+
+  if (is.na(position)) p1+ geom_density(data=df %>% subset(!is.na(Mw)), aes( distance , fill=Mw),alpha=alpha , size=size[1], bw=bw) else
+    p1+ geom_density(data=df %>% subset(!is.na(Mw)), aes( distance ,fill=Mw), position = position, alpha=alpha, show.legend = F, kernel=kernel)
+}
 
 
