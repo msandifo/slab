@@ -6,9 +6,6 @@
 \usage{
 get_borders_TM()
 }
-\value{
-
-}
 \description{
 Title
 }

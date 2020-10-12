@@ -9,9 +9,6 @@ getlines(wsm, scale = 1, psp = F, segment = F, norm = T, simplify = T)
 \arguments{
 \item{simplify}{}
 }
-\value{
-
-}
 \description{
 Title
 }

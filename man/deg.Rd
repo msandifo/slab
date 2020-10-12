@@ -9,9 +9,6 @@ deg(deg)
 \arguments{
 \item{deg}{}
 }
-\value{
-
-}
 \description{
 Title
 }

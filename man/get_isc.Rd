@@ -9,9 +9,6 @@ get_isc(srn = 8, save = T)
 \arguments{
 \item{save}{}
 }
-\value{
-
-}
 \description{
 Title
 }

@@ -9,9 +9,6 @@ set_proj(slab, proj = "laea")
 \arguments{
 \item{proj}{}
 }
-\value{
-
-}
 \description{
 Title
 }

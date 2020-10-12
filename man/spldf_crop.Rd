@@ -9,9 +9,6 @@ spldf_crop(spldf, ext, proj.string = "+init=epsg:4326")
 \arguments{
 \item{proj.string}{}
 }
-\value{
-
-}
 \description{
 Title
 }

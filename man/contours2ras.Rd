@@ -9,9 +9,6 @@ contours2ras(cad.sp.1, res = c(8, 16, 32), init.space = 0.5, method = "")
 \arguments{
 \item{method}{}
 }
-\value{
-
-}
 \description{
 Title
 }

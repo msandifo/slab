@@ -4,19 +4,11 @@
 \alias{pnts2ras}
 \title{Title}
 \usage{
-pnts2ras(
-  cad.sp.1,
-  res = c(8, 16, 32, 64),
-  init.space = c(0.5, 0.5),
-  method = "",
-  asis = FALSE
-)
+pnts2ras(cad.sp.1, res = c(8, 16, 32, 64), init.space = c(0.5, 0.5),
+  method = "", asis = FALSE)
 }
 \arguments{
 \item{asis}{}
-}
-\value{
-
 }
 \description{
 Title

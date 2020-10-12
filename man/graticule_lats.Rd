@@ -4,13 +4,11 @@
 \alias{graticule_lats}
 \title{Title}
 \usage{
-graticule_lats(vec, inc = 0.1, sp = F, proj4string = CRS("+init=epsg:4326"))
+graticule_lats(vec, inc = 0.1, sp = F,
+  proj4string = CRS("+init=epsg:4326"))
 }
 \arguments{
 \item{proj4string}{}
-}
-\value{
-
 }
 \description{
 Title

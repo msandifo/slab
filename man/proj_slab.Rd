@@ -9,9 +9,6 @@ proj_slab(slab, proj = "laea", ppp = T)
 \arguments{
 \item{ppp}{}
 }
-\value{
-
-}
 \description{
 Title
 }

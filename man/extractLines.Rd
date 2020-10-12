@@ -4,22 +4,11 @@
 \alias{extractLines}
 \title{Title}
 \usage{
-extractLines(
-  ras,
-  x = c(150, 140),
-  y = c(-11.5, -43.5),
-  n = 100,
-  plot = TRUE,
-  df = TRUE,
-  km = TRUE,
-  gc = T
-)
+extractLines(ras, x = c(150, 140), y = c(-11.5, -43.5), n = 100,
+  plot = TRUE, df = TRUE, km = TRUE, gc = T)
 }
 \arguments{
 \item{gc}{}
-}
-\value{
-
 }
 \description{
 Title

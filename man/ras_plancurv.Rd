@@ -4,19 +4,11 @@
 \alias{ras_plancurv}
 \title{Title}
 \usage{
-ras_plancurv(
-  ras,
-  method = "evans",
-  fact = 1,
-  foc = 25,
-  stretch.plan = c(0.25, 0.75)
-)
+ras_plancurv(ras, method = "evans", fact = 1, foc = 25,
+  stretch.plan = c(0.25, 0.75))
 }
 \arguments{
 \item{stretch.plan}{}
-}
-\value{
-
 }
 \description{
 Title

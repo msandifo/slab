@@ -9,9 +9,6 @@ BlRe.colours(blues = 6, reds = 6, reverse = F, drop = NA)
 \arguments{
 \item{drop}{}
 }
-\value{
-
-}
 \description{
 Title
 }

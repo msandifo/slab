@@ -4,29 +4,15 @@
 \alias{assemble_slab}
 \title{Title}
 \usage{
-assemble_slab(
-  slab = NA,
-  slab.name = "izu",
-  extend.lims = c(-1, 1, -1, 1),
+assemble_slab(slab = NA, slab.name = "izu", extend.lims = c(-1, 1, -1, 1),
   slab.dir = "/Volumes/data/data/global/slabs/slab1/allslabs/",
   etopo = "~/Dropbox/data/global/topography/etopo/ETOPO1_Bed_g_geotiff.tif",
-  slab2 = T,
-  fact = 1,
-  detail = "h",
-  borders = F,
-  plates = F,
-  rivers = T,
-  coasts = T,
-  ppp = F,
-  simplify = F,
-  ...
-)
+  slab2 = T, fact = 1, detail = "h", terrain = T, borders = F,
+  plates = F, rivers = T, coasts = T, ehb = T, cmt = T, hf = T,
+  vo = T, wsm = T, ppp = F, simplify = F, ...)
 }
 \arguments{
 \item{...}{}
-}
-\value{
-
 }
 \description{
 Title

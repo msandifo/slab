@@ -4,20 +4,11 @@
 \alias{read_ehb}
 \title{Title}
 \usage{
-read_ehb(
-  ehb = NA,
-  limsx = c(-180, 180),
-  limsy = c(-90, 90),
-  ppp = TRUE,
-  to = NA,
-  fname = "/Volumes/data/data/global/quakes/ehb19/ehb.Rdata"
-)
+read_ehb(ehb = NA, limsx = c(-180, 180), limsy = c(-90, 90), ppp = TRUE,
+  to = NA, fname = "/Volumes/data/data/global/quakes/ehb19/ehb.Rdata")
 }
 \arguments{
 \item{fname}{}
-}
-\value{
-
 }
 \description{
 Title

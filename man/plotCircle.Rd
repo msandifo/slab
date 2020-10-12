@@ -9,9 +9,6 @@ plotCircle(LonDec, LatDec, Km, plot = F)
 \arguments{
 \item{plot}{}
 }
-\value{
-
-}
 \description{
 Title
 }

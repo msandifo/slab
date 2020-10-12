@@ -4,31 +4,13 @@
 \alias{plot_axes}
 \title{Title}
 \usage{
-plot_axes(
-  ras,
-  ax.ext = 0.015,
-  n.minor = 10,
-  lwd = 2,
-  tick.sep = 5,
-  lwd.ticks = 1.5,
-  lwd.ticks.minor = 1.5,
-  major = 0.01,
-  minor = 0.004,
-  clip = T,
-  minute = TRUE,
-  sec = FALSE,
-  trad = NA,
-  cex = 2.5,
-  add = F,
-  grid = T,
-  ...
-)
+plot_axes(ras, ax.ext = 0.015, n.minor = 10, lwd = 2, tick.sep = 5,
+  lwd.ticks = 1.5, lwd.ticks.minor = 1.5, major = 0.01, minor = 0.004,
+  clip = T, minute = TRUE, sec = FALSE, trad = NA, cex = 2.5,
+  add = F, grid = T, ...)
 }
 \arguments{
 \item{...}{}
-}
-\value{
-
 }
 \description{
 Title

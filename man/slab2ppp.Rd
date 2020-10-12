@@ -9,9 +9,6 @@ slab2ppp(...)
 \arguments{
 \item{...}{}
 }
-\value{
-
-}
 \description{
 Title
 }

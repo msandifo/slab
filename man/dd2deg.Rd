@@ -9,9 +9,6 @@ dd2deg(dds, geo = "S", minute = TRUE, sec = FALSE)
 \arguments{
 \item{sec}{}
 }
-\value{
-
-}
 \description{
 Title
 }

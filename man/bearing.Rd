@@ -9,9 +9,6 @@ bearing(from, to, type = "snyder_sphere")
 \arguments{
 \item{type}{}
 }
-\value{
-
-}
 \description{
 vectroized version of gzAzimuth
 }

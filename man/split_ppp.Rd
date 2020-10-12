@@ -9,9 +9,6 @@ split_ppp(df = cmt1.ppp[p2]$marks)
 \arguments{
 \item{df}{}
 }
-\value{
-
-}
 \description{
 Title
 }

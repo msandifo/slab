@@ -4,16 +4,11 @@
 \alias{load_slab}
 \title{Title}
 \usage{
-load_slab(
-  slab.name = "izu",
-  slab.dir = "/Volumes/data/data/global/slabs/slab1/slabs"
-)
+load_slab(slab.name = "izu",
+  slab.dir = "/Volumes/data/data/global/slabs/slab1/slabs")
 }
 \arguments{
 \item{slab.dir}{}
-}
-\value{
-
 }
 \description{
 Title

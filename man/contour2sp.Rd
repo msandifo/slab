@@ -9,9 +9,6 @@ contour2sp(cadOw)
 \arguments{
 \item{cadOw}{}
 }
-\value{
-
-}
 \description{
 Title
 }

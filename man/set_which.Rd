@@ -9,9 +9,6 @@ set_which(ras, rmax)
 \arguments{
 \item{rmax}{}
 }
-\value{
-
-}
 \description{
 Title
 }

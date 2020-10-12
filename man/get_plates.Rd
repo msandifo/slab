@@ -4,15 +4,11 @@
 \alias{get_plates}
 \title{Title}
 \usage{
-get_plates(
-  fn = "~/data/global/polygons/tectonicplates-master/PB2002_boundaries.shp"
-)
+
+  get_plates(fn = "~/data/global/polygons/tectonicplates-master/PB2002_boundaries.shp")
 }
 \arguments{
 \item{fn}{}
-}
-\value{
-
 }
 \description{
 Title

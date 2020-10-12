@@ -9,9 +9,6 @@ set_clip(ras)
 \arguments{
 \item{ras}{}
 }
-\value{
-
-}
 \description{
 Title
 }

@@ -4,33 +4,15 @@
 \alias{plot_axes_trad}
 \title{Title}
 \usage{
-plot_axes_trad(
-  e.ras,
-  proj = NA,
-  ax.int = 5,
-  add = FALSE,
-  lwd = 1,
-  col = "black",
-  fg = "black",
-  cex = 3,
-  grid = F,
-  width = 2,
+plot_axes_trad(e.ras, proj = NA, ax.int = 5, add = FALSE, lwd = 1,
+  col = "black", fg = "black", cex = 3, grid = F, width = 2,
   crs = "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0",
   legend.crs = "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0",
-  extend = 0.02,
-  axis.width = 0.007,
-  stringc = TRUE,
-  degrees = TRUE,
-  double = TRUE,
-  poly = TRUE,
-  test = TRUE
-)
+  extend = 0.02, axis.width = 0.007, stringc = TRUE, degrees = TRUE,
+  double = TRUE, poly = TRUE, test = TRUE)
 }
 \arguments{
 \item{test}{}
-}
-\value{
-
 }
 \description{
 Title

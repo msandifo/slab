@@ -70,16 +70,16 @@ proj_slab <- function(slab, proj="laea", ppp=T){
   # slab$vo@coords <-  slab$vo@coords %>% as.data.frame() %>% convertPts(p) %>% as.matrix()
   # slab$wsm@coords <-  slab$wsm@coords %>% as.data.frame() %>% convertPts(p) %>% as.matrix()
 
-  slab$cmt   <-  slab$cmt  %>% spTransform( p)
-  slab$ehb  <-  slab$ehb %>% spTransform( p)
-  slab$hf  <-  slab$hf %>% spTransform( p)
-  slab$vo  <-  slab$vo %>% spTransform( p)
-  slab$wsm  <-  slab$wsm %>% spTransform( p)
-  slab$coastlines<- slab$coastlines %>% st_as_sf() %>% st_transform(p@projargs) %>% as("Spatial")
-    slab$coasts <-slab$coasts %>% spTransform( p)
-  slab$rivers <-slab$rivers %>% spTransform( p)
-  slab$plates <-slab$plates %>% spTransform(p)
-  slab$borders <-slab$borders %>% spTransform( p)
+  if (is.na(slab$cmt)==F) slab$cmt   <-  slab$cmt  %>% spTransform( p)
+  if (is.na(slab$ehb)==F) slab$ehb  <-  slab$ehb %>% spTransform( p)
+  if (is.na(slab$hf)==F) slab$hf  <-  slab$hf %>% spTransform( p)
+  if (is.na(slab$vo)==F) slab$vo  <-  slab$vo %>% spTransform( p)
+  if (is.na(slab$wsm)==F) slab$wsm  <-  slab$wsm %>% spTransform( p)
+  if (is.na(slab$coastlines)==F)  slab$coastlines<- slab$coastlines %>% st_as_sf() %>% st_transform(p@projargs) %>% as("Spatial")
+  if (is.na(slab$coasts)==F)     slab$coasts <-slab$coasts %>% spTransform( p)
+  if (is.na(slab$rivers)==F) slab$rivers <-slab$rivers %>% spTransform( p)
+  if (is.na(slab$plates)==F) slab$plates <-slab$plates %>% spTransform(p)
+  if (is.na(slab$borders)==F) slab$borders <-slab$borders %>% spTransform( p)
    if(ppp) slab2pp(slab) -> slab
   slab
 
@@ -118,12 +118,14 @@ assemble_slab <- function(slab = NA,
                           slab2 =T,
                           fact = 1,
                           detail="h",
+                          terrain=T,
                           borders=F,
                           plates=F,
                           rivers=T,
                           coasts=T,
-                          ppp=F, # for extarcting coasts, rivers etc.
-                          simplify=F,  #limits regiems in cmt to NF, TF , SS- still need to modify ..... wsm
+                          ehb=T,cmt=T,hf=T, vo=T,wsm=T,
+                          ppp=F, # for extracting coasts, rivers etc.
+                          simplify=F,  #limits regimes in cmt to NF, TF , SS- still need to modify ..... wsm
                           ...) {
   #assemble slab 1.0 rasters
 if(slab2==T)                  slab.dir   <-str_replace(   slab.dir ,"slab1", "slab2")
@@ -179,39 +181,43 @@ print(slab.name)
   if (fact > 1)   topo <- aggregate(topo, fact = fact)
 
   slab <- slab %>% resample(topo) #%>% addLayer(topo)
-  topo <- topo %>% build_raster_stack(thresh = c(0, 6000))
+ if (terrain) {topo <- topo %>% build_raster_stack(thresh = c(0, 6000))
   slab<- addLayer(slab, topo)
+ }
 
-  message("... loading cmt")
+  if(cmt){  message("... loading cmt")
   read_cmt(limsx = limsx, limsy = limsy, simplify=simplify) %>%
     ppp2spdf( full.extent) %>%
     add_slab_depth(  slab, anom=T) ->
     cmt
-
-  message("... loading wsm")
+} else cmt=NA
+  if (wsm){ message("... loading wsm")
   wsm_ppp(limsx = limsx, limsy = limsy) %>%
     ppp2spdf( full.extent) %>%
     add_slab_depth(  slab, anom=T)->
     wsm
+} else wsm=NA
 
-  message("... heat flow")
+  if(hf){  message("... heat flow")
   read_hf(limsx = limsx, limsy = limsy) %>%
    ppp2spdf (full.extent) %>%
    add_slab_depth(  slab )->
     hf
+  } else hf=NA
 
-  message("... volcanoes")
+ if(vo){ message("... volcanoes")
   read_vo1(limsx = limsx, limsy = limsy )%>%
     ppp2spdf (full.extent) %>%
     add_slab_depth(  slab )->
     vo
+ } else vo=NA
 
-
-  message("... loading ehb")
+ if (ehb){ message("... loading ehb")
   read_ehb(limsx = limsx, limsy = limsy) %>%
     ppp2spdf (full.extent) %>%
     add_slab_depth(  slab, anom=T) ->
   ehb
+ } else ehb=NA
 
 
   #--geography
@@ -1159,6 +1165,7 @@ projNA <- function(spa) {proj4string(spa) <- CRS() ; spa}
 slab2ppp <- function(...){
   slab2pp(...)
 }
+
 
 #' Title
 #'

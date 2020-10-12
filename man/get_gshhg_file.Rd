@@ -4,18 +4,11 @@
 \alias{get_gshhg_file}
 \title{Title}
 \usage{
-get_gshhg_file(
-  dir = "~/data/global/coastlines/gshhg-shp-2/",
-  type = "GSHHS",
-  resolution = "i",
-  level = 1
-)
+get_gshhg_file(dir = "~/data/global/coastlines/gshhg-shp-2/",
+  type = "GSHHS", resolution = "i", level = 1)
 }
 \arguments{
 \item{level}{}
-}
-\value{
-
 }
 \description{
 Title

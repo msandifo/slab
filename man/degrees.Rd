@@ -9,9 +9,6 @@ degrees(x, N = T)
 \arguments{
 \item{N}{}
 }
-\value{
-
-}
 \description{
 Title
 }

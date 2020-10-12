@@ -4,31 +4,14 @@
 \alias{plot_kernel_old}
 \title{Title}
 \usage{
-plot_kernel_old(
-  df,
-  cuts = c(3.5, 6.4, 10),
-  min = 0,
-  xlim = c(0, 400),
-  ylim = c(0, 0.016),
-  position = NA,
-  alpha = 0.3,
-  bw = "SJ",
-  stroke = 0.35,
-  size = 0.5,
-  kernel = "triangular",
-  legend.position = c(0.9, 0.75),
-  show.leg = T,
-  points = F,
-  mscale = 2,
-  mlimit = 4,
-  regime = F
-)
+plot_kernel_old(df, cuts = c(3.5, 6.4, 10), min = 0, xlim = c(0, 400),
+  ylim = c(0, 0.016), position = NA, alpha = 0.3, bw = "SJ",
+  stroke = 0.35, size = 0.5, kernel = "triangular",
+  legend.position = c(0.9, 0.75), show.leg = T, points = F, mscale = 2,
+  mlimit = 4, regime = F)
 }
 \arguments{
 \item{regime}{}
-}
-\value{
-
 }
 \description{
 Title

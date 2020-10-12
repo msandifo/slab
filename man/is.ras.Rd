@@ -9,9 +9,6 @@ is.ras(ras)
 \arguments{
 \item{ras}{}
 }
-\value{
-
-}
 \description{
 Title
 }

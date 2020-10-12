@@ -4,12 +4,8 @@
 \alias{lines2angle}
 \title{the angle in dgrees between two lines}
 \usage{
-lines2angle(
-  l1 = azdip2xyz(),
-  l2 = azdip2xyz(dip = -30, ver = FALSE),
-  ver = FALSE,
-  sig = 1
-)
+lines2angle(l1 = azdip2xyz(), l2 = azdip2xyz(dip = -30, ver = FALSE),
+  ver = FALSE, sig = 1)
 }
 \arguments{
 \item{l1}{line 1 as c(x,y,z) or c(az, dip)}

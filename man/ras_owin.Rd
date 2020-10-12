@@ -9,9 +9,6 @@ ras_owin(ras, dmin = 0.01)
 \arguments{
 \item{dmin}{}
 }
-\value{
-
-}
 \description{
 Title
 }

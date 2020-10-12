@@ -9,9 +9,6 @@ rad(rad)
 \arguments{
 \item{rad}{}
 }
-\value{
-
-}
 \description{
 Title
 }

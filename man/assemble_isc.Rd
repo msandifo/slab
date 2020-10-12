@@ -9,9 +9,6 @@ assemble_isc(regions = c(3:8))
 \arguments{
 \item{regions}{}
 }
-\value{
-
-}
 \description{
 Title
 }

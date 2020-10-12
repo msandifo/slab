@@ -9,9 +9,6 @@ split_owin(my.psp, my.owin, inds = c(3, 4), reverse = F)
 \arguments{
 \item{reverse}{}
 }
-\value{
-
-}
 \description{
 Title
 }

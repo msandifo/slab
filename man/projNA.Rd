@@ -9,9 +9,6 @@ projNA(spa)
 \arguments{
 \item{spa}{}
 }
-\value{
-
-}
 \description{
 Title
 }

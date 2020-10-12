@@ -4,29 +4,13 @@
 \alias{plot_kernel}
 \title{plot earthquake data kernel}
 \usage{
-plot_kernel(
-  df,
-  cuts = c(3.5, 6.4, 10),
-  min = 0,
-  xlim = c(0, 400),
-  ylim = c(0, 0.016),
-  position = NA,
-  alpha = 0.3,
-  bw = "SJ",
-  stroke = 0.35,
-  kernel = "triangular",
-  legend.position = c(0.9, 0.75),
-  show.leg = T,
-  points = F,
-  mscale = 2,
-  mlimit = 4
-)
+plot_kernel(df, cuts = c(3.5, 6.4, 10), min = 0, xlim = c(0, 400),
+  ylim = c(0, 0.016), position = NA, alpha = 0.3, bw = "SJ",
+  stroke = 0.35, kernel = "triangular", legend.position = c(0.9, 0.75),
+  show.leg = T, points = F, mscale = 2, mlimit = 4)
 }
 \arguments{
 \item{mlimit}{}
-}
-\value{
-
 }
 \description{
 plot earthquake data kernel

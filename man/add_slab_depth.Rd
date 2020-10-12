@@ -9,9 +9,6 @@ add_slab_depth(my.points, slab, anom = NULL)
 \arguments{
 \item{anom}{}
 }
-\value{
-
-}
 \description{
 Title
 }

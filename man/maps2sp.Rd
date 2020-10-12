@@ -9,9 +9,6 @@ maps2sp(xlim, ylim, l.out = 100, clip = TRUE)
 \arguments{
 \item{clip}{}
 }
-\value{
-
-}
 \description{
 Title
 }

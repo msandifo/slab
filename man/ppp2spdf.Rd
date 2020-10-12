@@ -9,9 +9,6 @@ ppp2spdf(pp, full.extent, crs = "+init=epsg:4326", remove.marks = T)
 \arguments{
 \item{remove.marks}{}
 }
-\value{
-
-}
 \description{
 Title
 }

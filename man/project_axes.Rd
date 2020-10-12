@@ -4,13 +4,11 @@
 \alias{project_axes}
 \title{Title}
 \usage{
-project_axes(df, axis = "T", scale = 10, bearing = 18, profile = "1", test = F)
+project_axes(df, axis = "T", scale = 10, bearing = 18, profile = "1",
+  test = F)
 }
 \arguments{
 \item{test}{}
-}
-\value{
-
 }
 \description{
 Title

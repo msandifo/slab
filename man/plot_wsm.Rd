@@ -4,25 +4,12 @@
 \alias{plot_wsm}
 \title{Plot world stree map data}
 \usage{
-plot_wsm(
-  wsm = NA,
-  scale = 1,
-  lines = T,
-  limsx = c(-180, 180),
-  limsy = c(-90, 90),
-  lwd = 1,
-  lty = 1,
-  shade = TRUE,
-  Tax = F,
-  Pax = F,
-  ends = TRUE
-)
+plot_wsm(wsm = NA, scale = 1, lines = T, limsx = c(-180, 180),
+  limsy = c(-90, 90), lwd = 1, lty = 1, shade = TRUE, Tax = F,
+  Pax = F, ends = TRUE)
 }
 \arguments{
 \item{ends}{}
-}
-\value{
-
 }
 \description{
 Plot world stree map data

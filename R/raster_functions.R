@@ -1303,10 +1303,10 @@ plot_axes_trad <- function(e.ras, proj=NA, ax.int=5,  add = FALSE, lwd=1, col="b
     gl <- gl %>% spTransform(  proj)
   }
 
-  plot(ax.poly.back, add = add, lwd=0.0001, col="white", fg="white")
+  sp::plot(ax.poly.back, add = add, lwd=0.0001, col="white", fg="white")
    # print(ax.poly.back %>% str())
-   if (poly)   plot(ax.poly, add = add, lwd=lwd, col=col, fg=fg)
-  plot(ax.lines, add = TRUE, lwd=lwd,  col=col)
+   if (poly)   sp::plot(ax.poly, add = add, lwd=lwd, col=col, fg=fg)
+  sp::plot(ax.lines, add = TRUE, lwd=lwd,  col=col)
 
   #print(labels(gl, CRS(legend.crs), side = 2:3 ))
 

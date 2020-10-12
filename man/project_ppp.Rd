@@ -2,6 +2,7 @@
 % Please edit documentation in R/funcs.R, R/misc.R
 \name{project_ppp}
 \alias{project_ppp}
+\alias{project_ppp}
 \title{Title}
 \usage{
 project_ppp(my.ppp, plates, profile = NULL)
@@ -13,18 +14,12 @@ project_ppp(my.ppp, plates, profile = NULL)
 
 \item{test}{}
 }
-\value{
-
-
-
-}
 \description{
+Title
+
 pro.bearing <- (azi - bearing)
   pro.bearing[pro.bearing>180] <-  pro.bearing[pro.bearing>180]-360
   ends.xy.plan <-  cos((pro.bearing)* pi/180)
   ends.xy <- -scale* cos(plunge* pi/180) *  ends.xy.plan
   ends.z <- scale* sin(plunge* pi/180)
-}
-\details{
-
 }

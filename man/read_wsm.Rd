@@ -9,9 +9,6 @@ read_wsm(fname = "~/Dropbox/data/global/wsm/wsm2016.csv", sep = ",")
 \arguments{
 \item{sep}{}
 }
-\value{
-
-}
 \description{
 Title
 }

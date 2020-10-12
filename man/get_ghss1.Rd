@@ -4,29 +4,14 @@
 \alias{get_ghss1}
 \title{Title}
 \usage{
-get_ghss1(
-  gshhg = "~/data/global/coastlines/gshhg-bin-2/",
-  xlim = c(138, 152),
-  ylim = c(-41.5, -33),
-  grid = c(4, 2),
-  detail = "i",
-  factor = 0.25,
-  projection = NULL,
-  level = 1,
-  no.clip = F,
-  properly = T,
-  checkPolygons = F,
-  rivers = F,
-  borders = F,
-  shift = F,
-  ...
-)
+get_ghss1(gshhg = "~/data/global/coastlines/gshhg-bin-2/", xlim = c(138,
+  152), ylim = c(-41.5, -33), grid = c(4, 2), detail = "i",
+  factor = 0.25, projection = NULL, level = 1, no.clip = F,
+  properly = T, checkPolygons = F, rivers = F, borders = F, shift = F,
+  ...)
 }
 \arguments{
 \item{...}{}
-}
-\value{
-
 }
 \description{
 Title

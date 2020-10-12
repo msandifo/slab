@@ -9,9 +9,6 @@ poly_dims(p)
 \arguments{
 \item{p}{}
 }
-\value{
-
-}
 \description{
 Title
 }
